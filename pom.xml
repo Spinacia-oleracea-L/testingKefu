@@ -1,0 +1,174 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.xnx3.yunkefu</groupId>
+  <artifactId>yunkefu_deploy</artifactId>
+  <packaging>jar</packaging>
+  <name>yunkefu_deploy</name>
+  <version>2.0</version>
+  <description></description>
+  
+   <properties>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- 编译时的编码 -->  
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>  
+	    <java.version>1.8</java.version>
+	  </properties>
+  
+	<!-- 定义公共资源版本 -->
+  <parent>
+    <groupId>com.xnx3.wangmarket.wm</groupId>
+    <artifactId>parent</artifactId>
+    <version>3.0</version>
+  </parent>
+  
+     
+   <repositories>
+		<repository>
+            <id>maven-ali</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+        <repository>
+		    <snapshots>
+		        <enabled>false</enabled>
+		    </snapshots>
+		    <id>central</id>
+		    <name>bintray</name>
+		    <url>http://jcenter.bintray.com</url>
+		</repository>
+		<repository>
+            <id>maven-guanfang</id>
+            <url>https://repo1.maven.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+	</repositories>
+   
+   <build>
+	    <plugins>
+                    <plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+							<excludes>
+		            			<exclude>**/com/Application*</exclude>
+		            			<exclude>**/*.xml</exclude>
+		            			<exclude>/*.properties</exclude>
+		            			<exclude>**/*.json</exclude>
+		            			<exclude>**/*.db</exclude>
+		            			<exclude>**/static/**</exclude>
+		          			</excludes>
+							<archive>  
+								<manifest>  
+									<addDefaultImplementationEntries>true</addDefaultImplementationEntries>  
+									<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+								</manifest>
+							</archive>
+						</configuration>
+					</plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+	    </plugins>
+	     <resources>  
+	     	<resource>  
+                <directory>src/main/resources</directory>  
+                <targetPath>./</targetPath>  
+                <includes>  
+                    <include>META-INF/**</include>
+                </includes>
+            </resource> 
+            <resource>  
+                <directory>src/main/resources/static/</directory>  
+                <targetPath>META-INF/resources/</targetPath>  
+                <includes>  
+                    <include>plugin/**</include>
+                </includes>
+            </resource> 
+            <resource>  
+                <directory>src/main/webapp</directory>  
+                <targetPath>META-INF/resources</targetPath>
+                <includes>  
+                    <include>plugin/**</include>  
+                </includes>  
+            </resource>
+            <resource>  
+                <directory>src/main/webapp/WEB-INF</directory>  
+                <targetPath>META-INF/resources/WEB-INF/</targetPath>  
+                <includes>  
+                    <include>view/**</include>  
+                </includes>  
+            </resource>
+            <!-- 将 resource/META-INF 下的配置文件拷贝到jar包 META-INF 目录下 -->  
+            <resource>  
+                <!-- 指定resources插件处理哪个目录下的资源文件 -->  
+                <directory>src/main/resources</directory>  
+                <!-- 注意此次必须要放在此目录下才能被访问到 -->  
+                <targetPath>./</targetPath>  
+                <includes>  
+                    <include>*.xml</include>
+                    <include>*.properties</include> 
+                    <include>*.json</include> 
+                    <include>*.db</include> 
+                </includes>
+            </resource> 
+        </resources>  
+	</build>
+  
+  <dependencies>  
+  		<!-- 本地的基础功能如数据库操作等。这个wm文档及源码在  http://wm.zvo.cn  -->
+  		<dependency> 
+	        <groupId>com.xnx3.wangmarket.wm</groupId>  
+	        <artifactId>wm</artifactId>  
+	        <version>3.1</version>  
+	        <scope>system</scope>  
+    	  <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/wm-3.1.jar</systemPath>  
+	    </dependency>
+       	<!-- CMS的所有功能。这个jar的源文件在 https://gitee.com/leimingyun/yunkefu -->
+       	<dependency>
+		  <groupId>com.xnx3.yunkefu</groupId>
+  		  <artifactId>yunkefu</artifactId>
+		  <version>2.0</version>
+		  <scope>system</scope>  
+    	  <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/yunkefu-2.0.jar</systemPath>  
+		</dependency>
+		<!-- 加入elasticsearch的实现。 （存储到哪，这里artifactId就引入的哪里的 datasource.xxx 另外，core中默认带控制台将日志实时打印出来） -->
+		<dependency>
+		    <groupId>cn.zvo.log</groupId>
+		    <artifactId>log-datasource-elasticsearch</artifactId>
+		    <version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>5.0.0.Alpha1</version>
+		</dependency>
+       
+  </dependencies>  
+  
+</project>
