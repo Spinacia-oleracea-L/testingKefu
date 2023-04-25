@@ -16,7 +16,7 @@
 	    <maven.javadoc.skip>true</maven.javadoc.skip>
 	  </properties>
   
-	<!-- 定义公共资源版本 -->
+	<!-- 定义公共资源版本，这个在 https://gitee.com/leimingyun/wm_parent -->
   <parent>
     <groupId>com.xnx3.wangmarket.wm</groupId>
     <artifactId>parent</artifactId>
