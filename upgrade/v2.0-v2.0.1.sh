@@ -10,35 +10,8 @@ cd /mnt/tomcat8/bin/
 
 ############支持包##############
 
-# wangmarket
-cd /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/
-rm -rf /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/wangmarket-*.jar
-wget http://down.zvo.cn/wangmarket/version/v6.2/wangmarket-6.1.3.jar
-
-# wm
-cd /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/
-rm -rf /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/wm-*.jar
-wget http://down.zvo.cn/wangmarket/version/v6.2/wm-3.1.jar
-
-
-# templateCenter
-if ls /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/wangmarket.plugin.templateCenter-*.jar 2>&1;then
-	cd /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/
-	rm -rf /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/wangmarket.plugin.templateCenter-*.jar
-	wget http://down.zvo.cn/wangmarket/plugin/templateCenter/wangmarket.plugin.templateCenter-1.5.jar
-fi
-
-# siteapi
-if ls /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/wangmarket.plugin.siteapi-*.jar 2>&1;then
-	cd /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/
-	rm -rf /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/wangmarket.plugin.siteapi-*.jar
-	wget http://down.zvo.cn/wangmarket/plugin/siteapi/wangmarket.plugin.siteapi-2.1.jar
-fi
-
-# HtmlVisualEditor 可视化html编辑
-cd /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/
-rm -rf /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/wangmarket.plugin.HtmlVisualEditor-*.jar
-wget http://down.zvo.cn/wangmarket/plugin/HtmlVisualEditor/wangmarket.plugin.HtmlVisualEditor-3.0.1.jar
+cd ~
+mkdir 123
 
 
 ##########################
