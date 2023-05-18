@@ -10,9 +10,20 @@ cd /mnt/tomcat8/bin/
 
 ############支持包##############
 
-cd ~
-mkdir 123
+# yunkefu
+cd /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/
+rm -rf /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/yunkefu-*.jar
+wget http://down.zvo.cn/yunkefu/v2.0/yunkefu-2.0.3.jar
 
+# API
+cd /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/
+rm -rf /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/yunkefu.plugin.api-*.jar
+wget http://down.zvo.cn/yunkefu/plugin/api/yunkefu.plugin.api-1.4.jar
+
+# wm
+cd /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/
+rm -rf /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/wm-*.jar
+wget http://down.zvo.cn/wangmarket/version/v6.2/wm-3.3.jar
 
 ##########################
 # 启动tomcat，也就是--重启
