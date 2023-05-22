@@ -18,12 +18,27 @@ wget http://down.zvo.cn/yunkefu/v2.0/yunkefu-2.0.3.jar
 # API
 cd /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/
 rm -rf /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/yunkefu.plugin.api-*.jar
-wget http://down.zvo.cn/yunkefu/plugin/api/yunkefu.plugin.api-1.4.jar
+wget http://down.zvo.cn/yunkefu/plugin/api/yunkefu.plugin.api-1.5.jar
 
 # wm
 cd /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/
 rm -rf /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/wm-*.jar
 wget http://down.zvo.cn/wangmarket/version/v6.2/wm-3.3.jar
+
+# screenShare
+if ls /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/yunkefu.plugin.screenShare-*.jar 2>&1;then
+	cd /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/
+	rm -rf /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/yunkefu.plugin.screenShare-*.jar
+	wget http://down.zvo.cn/yunkefu/plugin/screenShare/yunkefu.plugin.screenShare-1.3.1.jar
+fi
+
+# kefujsCopyright
+if ls /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/yunkefu.plugin.kefujsCopyright-*.jar 2>&1;then
+	cd /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/
+	rm -rf /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/yunkefu.plugin.kefujsCopyright-*.jar
+	wget http://down.zvo.cn/yunkefu/plugin/kefujsCopyright/yunkefu.plugin.kefujsCopyright-1.3.2.jar
+fi
+
 
 ##########################
 # 启动tomcat，也就是--重启
