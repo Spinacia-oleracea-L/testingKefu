@@ -39,6 +39,20 @@ if ls /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/yunkefu.plugin.kefujsCopyright-*.jar
 	wget http://down.zvo.cn/yunkefu/plugin/kefujsCopyright/yunkefu.plugin.kefujsCopyright-1.3.2.jar
 fi
 
+# offlineWeixinNotification
+if ls /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/yunkefu.plugin.kefujsCopyright-*.jar 2>&1;then
+	cd /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/
+	
+	rm -rf /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/yunkefu.plugin.offlineWeixinNotification-*.jar
+	wget http://down.zvo.cn/yunkefu/plugin/offlineWeixinNotification/yunkefu.plugin.offlineWeixinNotification-1.3.2.jar
+	
+	rm -rf /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/xnx3-weixin-*.jar
+	wget http://down.zvo.cn/yunkefu/plugin/offlineWeixinNotification/xnx3-weixin-1.7.3.jar
+	
+	rm -rf /mnt/tomcat8/webapps/ROOT/WEB-INF/lib/http-*.jar
+	wget http://down.zvo.cn/yunkefu/plugin/offlineWeixinNotification/http-1.1.jar
+fi
+
 
 ##########################
 # 启动tomcat，也就是--重启
