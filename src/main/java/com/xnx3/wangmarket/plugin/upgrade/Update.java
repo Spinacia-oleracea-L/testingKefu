@@ -16,8 +16,11 @@ public class Update implements DatabaseLoadFinishInterface{
 
 	@Override
 	public void databaseLoadFinish() {
+		//两种方式，免得一种不可以还能有另一种
 		SystemUtil.put("UPGRADE_PLUGIN_SHELL_FOLDER", "https://gitee.com/leimingyun/yunkefu_deploy/raw/master/upgrade/");
 		SystemUtil.put("UPGRADE_PLUGIN_VERSION", Global.VERSION);
+		CacheUtil.set("UPGRADE_PLUGIN_SHELL_FOLDER", "https://gitee.com/leimingyun/yunkefu_deploy/raw/master/upgrade/");
+		CacheUtil.set("UPGRADE_PLUGIN_VERSION", Global.VERSION);
 		
 		ConsoleUtil.debug("set UPGRADE_PLUGIN_VERSION : "+SystemUtil.get("UPGRADE_PLUGIN_VERSION"));
 	}
