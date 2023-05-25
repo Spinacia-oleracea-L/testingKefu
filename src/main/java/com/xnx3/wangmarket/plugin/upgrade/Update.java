@@ -22,7 +22,8 @@ public class Update implements DatabaseLoadFinishInterface{
 		CacheUtil.set("UPGRADE_PLUGIN_SHELL_FOLDER", "https://gitee.com/leimingyun/yunkefu_deploy/raw/master/upgrade/");
 		CacheUtil.set("UPGRADE_PLUGIN_VERSION", Global.VERSION);
 		
-		ConsoleUtil.debug("set UPGRADE_PLUGIN_VERSION : "+SystemUtil.get("UPGRADE_PLUGIN_VERSION"));
+		ConsoleUtil.debug("set UPGRADE_PLUGIN_VERSION : "+CacheUtil.get("UPGRADE_PLUGIN_VERSION"));
+		ConsoleUtil.debug("set UPGRADE_PLUGIN_SHELL_FOLDER : "+CacheUtil.get("UPGRADE_PLUGIN_SHELL_FOLDER"));
 	}
 	
 }
