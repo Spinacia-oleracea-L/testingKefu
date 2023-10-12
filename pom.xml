@@ -4,7 +4,7 @@
   <artifactId>yunkefu_deploy</artifactId>
   <packaging>war</packaging>
   <name>yunkefu_deploy</name>
-  <version>2.0.1</version>
+  <version>2.0.5</version>
   <description></description>
   
 	<properties>
@@ -153,9 +153,9 @@
        	<dependency>
 		  <groupId>com.xnx3.yunkefu</groupId>
   		  <artifactId>yunkefu</artifactId>
-		  <version>2.0.1</version>
+		  <version>2.0.5</version>
 		  <scope>system</scope>  
-    	  <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/yunkefu-2.0.1.jar</systemPath>  
+    	  <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/yunkefu-2.0.5.jar</systemPath>  
 		</dependency>
 		<!-- 加入elasticsearch的实现。 （存储到哪，这里artifactId就引入的哪里的 datasource.xxx 另外，core中默认带控制台将日志实时打印出来） -->
 		<dependency>
